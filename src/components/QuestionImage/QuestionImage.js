@@ -24,6 +24,10 @@ class QuestionImage extends React.Component {
                 timeIsUp: false
             });
             
+            if(this.timer) {
+                clearTimeout(this.timer);
+            }
+
             this.timer = setTimeout(() => {
                 this.setState({
                     timeIsUp: true
@@ -33,6 +37,10 @@ class QuestionImage extends React.Component {
     }
 
     componentDidMount() {
+        if(this.timer) {
+            clearTimeout(this.timer);
+        }
+        
         this.timer = setTimeout(() => {
             this.setState({
                 timeIsUp: true
