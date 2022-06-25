@@ -102,6 +102,9 @@ function Exercise() {
             <h1>Experiment Game</h1>
             <Container>
                 <Row>
+                    <ExperimentDescription></ExperimentDescription>
+                </Row>
+                <Row>
                     <Col>
                         <ProgressBar now={(count / process.env.REACT_APP_NUM_EX) * 100} label={(count / process.env.REACT_APP_NUM_EX) * 100 + " %"}></ProgressBar>
                     </Col>
@@ -114,8 +117,7 @@ function Exercise() {
                         <AnswerForm onSubmit={handleSubmit} />
                     </Col>
                 </Row>
-            </Container>
-            <ExperimentDescription></ExperimentDescription>            
+            </Container>        
         </div>
     )
 }

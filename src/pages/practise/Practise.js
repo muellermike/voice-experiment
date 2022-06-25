@@ -50,6 +50,9 @@ function Practise() {
             <h1>Practise Game</h1>
             <Container>
                 <Row className="Container-Row">
+                    <ExperimentDescription></ExperimentDescription>
+                </Row>
+                <Row className="Container-Row">
                     <Col xs={12} sm={12} md={7}>
                         <QuestionImage question={exercise.question} image={exercise.image} />
                     </Col>
@@ -64,8 +67,7 @@ function Practise() {
                     You can keep going submitting those practise answers as long as you like. As soon as you hit the button below, the dots game as the experiment starts.
                     <Button variant="primary" onClick={startExperiment}>Start the experiment</Button>
                 </Row>
-            </Container>
-            <ExperimentDescription></ExperimentDescription>            
+            </Container>         
         </div>
     )
 }
