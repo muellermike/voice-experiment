@@ -19,10 +19,7 @@ function Introduction() {
                             <Card>
                                 <Card.Title>Dots Game</Card.Title>
                                 <Card.Body>
-                                    <p>In this game you will see a box with multiple red dots in it (see example below).</p>
-                                    <p>You will only see the dots for about 5 seconds, and once they disappear your task is to indicate whether there were more dots on the right side of the square or on the left side of the square (note that sometimes a dot will be on the line between two parts). You indicate this by recording an audio response and submit your answer.</p>
-                                    <p>Please respond with an audio recording stating in a full sentence which side has more dots. Please answer in with a sentence like: "There are more dots on the right side". This is important because our algorithm processes such sentences. Note that your audio will never be shared with anyone.</p>
-                                    <p>Before starting the experiment game you have to record your gender and age. In this step you can become familiar with the audio recording and also check your audio. This won't be possible in the real game.</p>
+                                    <p>This is the experiment platform in which the described experiment takes place. Please take you time to conclude the experiment.</p>
                                 </Card.Body>
                                 <div>
                                     <Card.Img variant="bottom" src={exampleImg} />
