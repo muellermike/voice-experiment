@@ -16,8 +16,8 @@ function ParticipantInfo() {
     const [ageRecording, setAgeRecording] = useState(null);
     const [genderRecording, setGenderRecording] = useState(null);
     const globalState = useSelector(state => state.userInfoState);
+    const imageState = useSelector(state => state.imageState);
 
-    // TODO: send image time to endpoint
     const handleSubmit = (event) => {
         event.preventDefault();
         if(genderRecording  && ageRecording) {
@@ -38,7 +38,7 @@ function ParticipantInfo() {
             })
             .then(data =>  {
                 dispatch(storeUserId(data));
-                requestOptions.body = JSON.stringify({ user: data, start: new Date().toISOString()});
+                requestOptions.body = JSON.stringify({ user: data, start: new Date().toISOString(), imageTime: imageState.imageTime});
                 fetch(process.env.REACT_APP_API_BASE_URL + '/experiments', requestOptions)
                 .then(response => {
                     if(response.status !== 200) {
