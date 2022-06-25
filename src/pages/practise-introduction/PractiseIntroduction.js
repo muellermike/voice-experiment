@@ -30,7 +30,9 @@ function PractiseIntroduction() {
                         <Card>
                             <Card.Title>Dots Game</Card.Title>
                             <Card.Body className="card-body-practise-intro" >
-                                <p>In the next step you have the chance to test the experiment. You will see the dots game almost as it is during the experiemnt. The only difference is that there are more hints how the user interface works. Take your time to figure out how the user interface works and how you can interact with it. The practise game does not influence the payment. You can play as long as you wish. Just record and submit your answer and then the next practise image will appear.</p>
+                                <p>In the next step you have the chance to test the experiment by playing several practise rounds. You will see the dots game almost as it is during the experiemnt. The only difference is that there are more hints how the user interface works. Take your time to figure out how the user interface works and how you can interact with it. The practise game does not influence the payment. You can play as long as you wish. Just record and submit your answer and then the next practise image will appear.</p>
+                                <p>You have to solve the task by answering whether there are more dots on the right or left side. Therefore, please answer in a sentence such as <b>"There are more dots on the right / left side"</b>. Note that we are going to pay according to your mentioned result and not whether the result was correct.</p>
+                                <p>To solve the game, note the steps below.</p>
                                 <ListGroup as="ol" numbered>
                                     <ListGroup.Item
                                         as="li"
@@ -70,7 +72,6 @@ function PractiseIntroduction() {
                                     </ListGroup.Item>
                                 </ListGroup>
                                 <br /><p>Once you are ready, <b>scroll down to start the experiment</b>.</p>
-                                <p>Please note once again, that you are being paid according to your stated answer even if your answer was wrong.</p>
                                 <Button variant="primary" onClick={handleClickNext} >Go to the practise game</Button>
                             </Card.Body>
                         </Card>
