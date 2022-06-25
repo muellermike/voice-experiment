@@ -1,6 +1,7 @@
 import React from "react";
 import "./QuestionImage.css";
 import { Card } from "react-bootstrap";
+import emptyEx from "../../assets/images/empty_ex.PNG";
 
 class QuestionImage extends React.Component {
     imageDuration = 5000;
@@ -69,7 +70,7 @@ class QuestionImage extends React.Component {
                         </Card.Text>
                     </Card.Body>
                     <div>
-                        {this.state.timeIsUp ? <Card.Img className="Image-Dots" variant="bottom" /> : 
+                        {this.state.timeIsUp ? <Card.Img className="Image-Dots" variant="bottom" src={emptyEx} /> : 
                             <Card.Img className="Image-Dots" variant="bottom" src={this.props.image} />
                         }
                     </div>
