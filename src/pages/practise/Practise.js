@@ -9,15 +9,16 @@ import { useSelector } from 'react-redux';
 import ex1 from "../../assets/images/ex17.PNG";
 import ex2 from "../../assets/images/ex19.PNG";
 import { HiArrowSmDown } from "react-icons/hi";
+import ImportantInformation from "../../components/ImportantInformation/ImportantInformation";
 
 function Practise() {
     let navigate = useNavigate();
 
     const exercises = [{
-        question: "Where are more dots?",
+        question: "On which side are more dots?",
         image: ex1
     },{
-        question: "Where are more dots?",
+        question: "On which side are more dots?",
         image: ex2
     }];
 
@@ -55,6 +56,7 @@ function Practise() {
             <h1>Practise Game</h1>
             <Container>
                 <Row className="Container-Row">
+                    <ImportantInformation></ImportantInformation>
                     <ExperimentDescription></ExperimentDescription>
                 </Row>
                 <Row className="Container-Row">
