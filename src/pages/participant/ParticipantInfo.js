@@ -124,13 +124,14 @@ function ParticipantInfo() {
                                         Please check that there aren't any surrounding sounds and that you are clearly hearable in the audio.
                                     </Card.Text>
                                     <AudioInput setAudioRecording={setMicCheckAudioRecording} showPlayAudio setValue={handleMicCheckRecording}></AudioInput>
-                                    <div key={'checkbox'} className="mb-3">
+                                    <div className="mb-3 checkbox-understand-group">
                                         <Form.Check 
+                                            inline
                                             type="checkbox"
                                             id={'checkbox-understand'}
                                             label={"I confirm that the audio works and I'm clearly hearable and understandable. I hereby certify that if my records are not clearly understandable, I cannot be paid."}
                                             checked={isRuleAccepted}
-                                            onClick={toggleAcceptRule}
+                                            onChange={toggleAcceptRule}
                                         />
                                     </div>
                                 </Card.Body>
