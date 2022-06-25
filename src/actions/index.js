@@ -16,6 +16,15 @@ export const storeExternalUserId = (externalUserId) => {
     }
 }
 
+export const storeImageTime = (imgTime) => {
+    return {
+        type: 'STORE_IMG_TIME',
+        data: {
+            imageTime: imgTime
+        }
+    }
+}
+
 export const storeExperimentId = (experimentId) => {
     return {
         type: 'STORE_EXPERIMENTID',

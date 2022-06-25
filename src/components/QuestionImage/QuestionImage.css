@@ -3,6 +3,10 @@
     height: auto;
 }
 
+.card-body {
+    padding: 0px;
+}
+
 @media (min-width: 767px) {
     .Image-Dots {
         min-height: 400px;

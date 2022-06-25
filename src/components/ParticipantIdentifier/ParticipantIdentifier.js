@@ -2,7 +2,7 @@ import { useState, React, useEffect } from "react";
 import { Button, Card, FloatingLabel, Form } from "react-bootstrap";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from 'react-redux';
-import { storeExternalUserId } from '../../actions';
+import { storeExternalUserId, storeImageTime } from '../../actions';
 
 function ParticipantIdentifier() {
 
@@ -17,8 +17,8 @@ function ParticipantIdentifier() {
     let query = useQuery();
 
     useEffect(() => {
-        if (query.get("unipark-id")) {
-            setExtUserId(query.get("unipark-id"))
+        if (query.get("id_uder")) {
+            setExtUserId(query.get("id_user"))
         }
     }, [query])
 
@@ -29,6 +29,10 @@ function ParticipantIdentifier() {
             event.stopPropagation();
         } else {
             dispatch(storeExternalUserId(extUserId));
+            if (query.get("img_tm")) {
+                console.log("img_tm: " + query.get("img_tm"));
+                dispatch(storeImageTime(query.get("img_tm") * 1000));
+            }
             navigate("/participant");
         }
 
@@ -47,8 +51,8 @@ function ParticipantIdentifier() {
                     <Form noValidate validated={validated} onSubmit={handleSumbit}>
                         <Form.Group>
                             <FloatingLabel label="UniPark-ID">
-                                <Form.Control required type="text" placeholder="12345" onChange={e => setExtUserId(e.target.value)} value={extUserId} disabled={query.get("unipark-id")} />
-                                <Form.Control.Feedback type="invalid">Please provide a UniPark-ID!</Form.Control.Feedback>
+                                <Form.Control required type="text" placeholder="12345" onChange={e => setExtUserId(e.target.value)} value={extUserId} disabled={query.get("id_user")} />
+                                <Form.Control.Feedback type="invalid">Please provide your UniPark-ID!</Form.Control.Feedback>
                             </FloatingLabel>
                         </Form.Group>
                         <Button variant="primary" style={{ margin: "25px"}} type="submit">Next</Button>
