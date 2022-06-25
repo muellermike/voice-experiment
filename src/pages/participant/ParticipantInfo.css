@@ -10,3 +10,7 @@
 .button-row {
     margin-bottom: 20px;
 }
+
+.checkbox-understand-group {
+    align-content: flex-start;
+}

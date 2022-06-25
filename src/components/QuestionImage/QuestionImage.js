@@ -62,7 +62,7 @@ class QuestionImage extends React.Component {
         return (
             <div>
                 <Card>
-                    <Card.Body>
+                    <Card.Body className=".card-body-image">
                         <Card.Text>
                             {this.props.question}
                         </Card.Text>
