@@ -33,8 +33,8 @@ function Introduction() {
                                 <Card.Subtitle className="mb-2 text-muted">based on your answers</Card.Subtitle>
                                 <Card.Body>
                                     <p>Since we want to understand what you have said, you are being paid according to your stated answer. We do not check whether your answer was correct or not.</p>
-                                    <p>Again, please always respond with a full sentence.</p>
-                                    <p>If you state in your answer that it has more dots on the rigth side, you are being paid 10 Cents. When you mention the left side has more dots, we pay you 1 Cent.</p>
+                                    <p>Please always respond with a full sentence.</p>
+                                    <p><b>If you state in your answer that it has more dots on the rigth side, you are being paid 10 Cents. When you mention the left side has more dots, we pay you 1 Cent.</b></p>
                                 </Card.Body>
                             </Card>
                             <ParticipantIdentifier></ParticipantIdentifier>
