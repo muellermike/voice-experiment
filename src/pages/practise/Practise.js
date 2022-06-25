@@ -65,16 +65,16 @@ function Practise() {
                     </Col>
                     <Col className="Container-Col">
                         <div className="Answer-Part">
-                            <p>You're in the practise mode. Start the experiment game below. </p>
+                            <p>You're in the practise mode. You can try as long as you want.</p>
                             <AnswerForm onSubmit={handleSubmit} />
-                        </div>
-                        { showArrow ? 
+                            { showArrow ? 
                             <Fade in={showArrow} timeout={500} >
                                 <div className="experiment-hint">
-                                    <HiArrowSmDown size={"3.5em"} />
-                                    <div>Start the experiment below</div>
+                                    <HiArrowSmDown size={"2em"} />
+                                    Start the experiment below
                                 </div>
                             </Fade> : "" }
+                        </div>
                     </Col>
                 </Row>
                 <Row>
