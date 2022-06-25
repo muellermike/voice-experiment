@@ -29,8 +29,8 @@ function PractiseIntroduction() {
                     <Row>
                         <Card>
                             <Card.Title>Dots Game</Card.Title>
-                            <Card.Body>
-                                <p>In the next step you have the chance to test the experiment. You will see the dots game almost as it is during the experiemnt. The only difference is that there are more hints how the user interface works. Take your time to figure out how the user interface works and how you can interact with it. The practise game does not influence the payment.</p>
+                            <Card.Body className="card-body-practise-intro" >
+                                <p>In the next step you have the chance to test the experiment. You will see the dots game almost as it is during the experiemnt. The only difference is that there are more hints how the user interface works. Take your time to figure out how the user interface works and how you can interact with it. The practise game does not influence the payment. You can play as long as you wish. Just record and submit your answer and then the next practise image will appear.</p>
                                 <ListGroup as="ol" numbered>
                                     <ListGroup.Item
                                         as="li"
