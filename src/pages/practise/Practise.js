@@ -1,5 +1,5 @@
 import "./Practise.css";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Fade, Row } from "react-bootstrap";
 import QuestionImage from "../../components/QuestionImage/QuestionImage";
 import AnswerForm from "../../components/AnswerForm/AnswerForm";
 import ExperimentDescription from "../../components/ExperimentDescription/ExperimentDescription";
@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import ex1 from "../../assets/images/ex17.PNG";
 import ex2 from "../../assets/images/ex19.PNG";
+import { HiArrowSmDown } from "react-icons/hi";
 
 function Practise() {
     let navigate = useNavigate();
@@ -21,7 +22,8 @@ function Practise() {
     }];
 
     const [exercise, setExercise] = useState(exercises[0]);
-    const [count, setCount] = useState(1);
+    const [count, setCount] = useState(0);
+    const [showArrow, setShowArrow] = useState(false);
     const globalState = useSelector(state => state.userInfoState);
 
     const handleSubmit = (recording) => {
@@ -30,9 +32,11 @@ function Practise() {
             if(count === (exercises.length - 1)) {
                 setExercise(exercises[0]);
                 setCount(0);
+                setShowArrow(true);
             } else {
                 setExercise(exercises[count + 1]);
                 setCount(count + 1);
+                setShowArrow(false);
             }
         } else {
             alert("you shall not pass");
@@ -61,6 +65,13 @@ function Practise() {
                             <p>You're in the practise mode. Start the experiment game below. </p>
                             <AnswerForm onSubmit={handleSubmit} />
                         </div>
+                        { showArrow ? 
+                            <Fade in={showArrow} timeout={500} >
+                                <div className="experiment-hint">
+                                    <HiArrowSmDown size={"3.5em"} />
+                                    <div>Start the experiment below</div>
+                                </div>
+                            </Fade> : "" }
                     </Col>
                 </Row>
                 <Row>

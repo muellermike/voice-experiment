@@ -1,3 +1,9 @@
 .Answer-Part {
     margin-top: 25px;
 }
+
+@media (min-width: 768px) {
+    .experiment-hint {
+        position: 600px;
+    }
+}
