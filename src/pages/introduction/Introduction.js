@@ -20,6 +20,7 @@ function Introduction() {
                                 <Card.Title>Dots Game</Card.Title>
                                 <Card.Body>
                                     <p>This is the experiment platform in which the described experiment takes place. Please take you time to conclude the experiment.</p>
+                                    <p>The picture below shows an image as it will be presented in the experiment.</p>
                                 </Card.Body>
                                 <div>
                                     <Card.Img variant="bottom" src={exampleImg} />

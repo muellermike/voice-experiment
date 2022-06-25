@@ -13,8 +13,11 @@ function ParticipantInfo() {
     const dispatch = useDispatch();
     const [isGenderRecorded, setGenderRecorded] = useState(false);
     const [isAgeRecorded, setAgeRecorded] = useState(false);
+    const [isMicCheckRecorded, setMicCheckRecorded] = useState(false);
+    const [isRuleAccepted, setRuleAccepted] = useState(false);
     const [ageRecording, setAgeRecording] = useState(null);
     const [genderRecording, setGenderRecording] = useState(null);
+    const [micCheckRecording, setMicCheckRecording] = useState(null);
     const globalState = useSelector(state => state.userInfoState);
     const imageState = useSelector(state => state.imageState);
 
@@ -73,7 +76,13 @@ function ParticipantInfo() {
             timeToRecording: timeToRecording,
             recording: recording
         });
-        console.log(ageRecording);
+    }
+
+    const handleMicCheckRecording = (recording, timeToRecording) => {
+        setMicCheckRecording({
+            timeToRecording: timeToRecording,
+            recording: recording
+        });
     }
 
     const setGenderAudioRecording = (value) => {
@@ -83,6 +92,14 @@ function ParticipantInfo() {
     const setAgeAudioRecording = (value) => {
         setAgeRecorded(value);
     }
+
+    const setMicCheckAudioRecording = (value) => {
+        setMicCheckRecorded(value);
+    }
+
+    const toggleAcceptRule = () => {
+        setRuleAccepted(!isRuleAccepted);
+    };
 
     // check cards (Header and Footer): https://react-bootstrap.github.io/components/cards/#header-and-footer
     // show data to receive participant information
@@ -97,35 +114,58 @@ function ParticipantInfo() {
             <Card>
                 <Form className="form-container">
                     <Row>
+                        <Form.Group className=" no-padding" controlId="formHorizontalMicCheck">
+                            <Card className="participant-card">
+                                <Card.Header as="h5">Mic Check</Card.Header>
+                                <Card.Body>
+                                    <Card.Title>Please test your microphone. </Card.Title>
+                                    <Card.Text>
+                                        You can test the microphone for example by saying <b>"I'm ready to start the experiment game"</b>. After recording, you can listen to your audio.
+                                        Please check that there aren't any surrounding sounds and that you are clearly hearable in the audio.
+                                    </Card.Text>
+                                    <AudioInput setAudioRecording={setMicCheckAudioRecording} showPlayAudio setValue={handleMicCheckRecording}></AudioInput>
+                                    <div key={'checkbox'} className="mb-3">
+                                        <Form.Check 
+                                            type="checkbox"
+                                            id={'checkbox-understand'}
+                                            label={"I confirm that the audio works and I'm clearly hearable and understandable. I hereby certify that if my records are not clearly understandable, I cannot be paid."}
+                                            checked={isRuleAccepted}
+                                            onClick={toggleAcceptRule}
+                                        />
+                                    </div>
+                                </Card.Body>
+                            </Card>
+                        </Form.Group>
                         <Form.Group className=" no-padding" controlId="formHorizontalGender">
+                        {(micCheckRecording) ? 
                             <Card className="participant-card">
                                 <Card.Header as="h5">Gender</Card.Header>
                                 <Card.Body>
                                     <Card.Title>Provide your gender through speech</Card.Title>
                                     <Card.Text>
-                                        Please answer with a sentence like: "I am a female"
+                                        Please answer with a sentence like: <b>"I am a female / male / diverse"</b>.
                                     </Card.Text>
-                                    <AudioInput setAudioRecording={setGenderAudioRecording} showPlayAudio setValue={handleGenderRecording}></AudioInput>
+                                    <AudioInput setAudioRecording={setGenderAudioRecording} setValue={handleGenderRecording}></AudioInput>
                                 </Card.Body>
-                            </Card>
+                            </Card> : ""}
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formHorizontalAge">
-                            {(genderRecording) ? 
+                            {(micCheckRecording && genderRecording) ? 
                             <Card className="participant-card">
                                 <Card.Header as="h5">Age</Card.Header>
                                 <Card.Body>
                                     <Card.Title>Provide your age through speech</Card.Title>
                                     <Card.Text>
-                                        Please answer with a sentence like: "I am 25 years old"
+                                        Please answer with a sentence like: <b>"I am x years old"</b>. Please replace 'x' with your current age.
                                     </Card.Text>
-                                    <AudioInput setAudioRecording={setAgeAudioRecording} showPlayAudio setValue={handleAgeRecording}></AudioInput>
+                                    <AudioInput setAudioRecording={setAgeAudioRecording} setValue={handleAgeRecording}></AudioInput>
                                 </Card.Body>
                             </Card> : ""}
                         </Form.Group>
                     </Row>
                     <Row className="button-row">
                         <Col>
-                            <Button variant="primary" disabled={!(isGenderRecorded && isAgeRecorded)} type="submit" onClick={handleSubmit}>
+                            <Button variant="primary" disabled={!(isMicCheckRecorded && isGenderRecorded && isAgeRecorded && isRuleAccepted)} type="submit" onClick={handleSubmit}>
                                 { false ? <Spinner
                                 as="span"
                                 animation="border"
