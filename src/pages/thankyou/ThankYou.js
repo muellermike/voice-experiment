@@ -33,6 +33,7 @@ function ThankYou() {
                                     <Card.Text>
                                         The payment will be proceeded to your Uni-Park account. <br />
                                         You provided the ID: {globalState.externalUserId}.
+                                        Please go back to Uni-Park with the button below and answer the concluding questions about the experiment. Thank you.
                                     </Card.Text>
                                     <Button variant="primary" href={"https://google.ch/search?q=" + globalState.externalUserId}>Go back to Uni-Park</Button>
                                 </Card.Body>

@@ -21,7 +21,7 @@ function PractiseIntroduction() {
         <div>
             <h1>Practise Task of the Dots Experiment</h1>
             <div>
-                <p>Get to know how the Dots Experiment works</p>
+                <p>Get to know how the Dots Experiment works.</p>
                 <Container>
                     <Row>
                         <ImportantInformation></ImportantInformation>
@@ -40,7 +40,7 @@ function PractiseIntroduction() {
                                     >
                                         <div className="ms-2 me-auto">
                                         <div className="fw-bold">Dots Image on the left side</div>
-                                        There is a dots image shown on the left side. Look at it first, as <b>it is only shown {imageState.imageTime / 1000} seconds</b>. After this time, it is replaced with an empty image. Make sure to look at the image and decide what to answer.
+                                        There is a dots image shown on the left side. Look at it first, as <b>it is only shown {imageState.imageTime / 1000} seconds</b>. Make sure to look at the image and decide what to answer. After this time, it is replaced with an empty image.
                                         </div>
                                     </ListGroup.Item>
                                     <ListGroup.Item
