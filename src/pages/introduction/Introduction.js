@@ -34,7 +34,7 @@ function Introduction() {
                                 <Card.Body>
                                     <p>Since we want to understand what you have said, you are being paid according to your stated answer. We do not check whether your answer was correct or not.</p>
                                     <p>Again, please always respond with a full sentence.</p>
-                                    <p>If you state in your answer that it has more dots on the rigth side you are being paid 1 Swiss Franc. When you mention the left side with more dots we pay you 0.5 Swiss Francs.</p>
+                                    <p>If you state in your answer that it has more dots on the rigth side, you are being paid 10 Cents. When you mention the left side has more dots, we pay you 1 Cent.</p>
                                 </Card.Body>
                             </Card>
                             <ParticipantIdentifier></ParticipantIdentifier>
