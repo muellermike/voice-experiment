@@ -16,6 +16,7 @@ function Exercise() {
     const [startTime, setStartTime] = useState(new Date());
     const [count, setCount] = useState(1);
     const globalState = useSelector(state => state.userInfoState);
+    const imageState = useSelector(state => state.imageState);
 
     // lade die nächste "Aufgabe" über das API
 
@@ -111,7 +112,7 @@ function Exercise() {
                 </Row>
                 <Row className="Container-Row">
                     <Col xs={12} sm={12} md={7}>
-                        <QuestionImage question={exercise.question} image={"data:" + exercise.mimeType + ";base64, " + exercise.encodedString} />
+                        <QuestionImage question={exercise.question} image={"data:" + exercise.mimeType + ";base64, " + exercise.encodedString} imageDuration={imageState.imageTime} />
                     </Col>
                     <Col className="Container-Col">
                         <AnswerForm onSubmit={handleSubmit} />

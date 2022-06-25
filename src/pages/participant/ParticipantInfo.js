@@ -17,6 +17,7 @@ function ParticipantInfo() {
     const [genderRecording, setGenderRecording] = useState(null);
     const globalState = useSelector(state => state.userInfoState);
 
+    // TODO: send image time to endpoint
     const handleSubmit = (event) => {
         event.preventDefault();
         if(genderRecording  && ageRecording) {

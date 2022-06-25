@@ -4,8 +4,6 @@ import { Card } from "react-bootstrap";
 import emptyEx from "../../assets/images/empty_ex.PNG";
 
 class QuestionImage extends React.Component {
-    imageDuration = 5000;
-
     constructor(props){
         super(props);
 
@@ -33,7 +31,7 @@ class QuestionImage extends React.Component {
                 this.setState({
                     timeIsUp: true
                    });
-               }, this.imageDuration);
+               }, this.props.imageDuration);
          }
     }
 
@@ -46,7 +44,7 @@ class QuestionImage extends React.Component {
             this.setState({
                 timeIsUp: true
                });
-           }, this.imageDuration);
+           }, this.props.imageDuration);
     }
 
     /*

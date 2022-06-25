@@ -25,6 +25,7 @@ function Practise() {
     const [count, setCount] = useState(0);
     const [showArrow, setShowArrow] = useState(false);
     const globalState = useSelector(state => state.userInfoState);
+    const imageState = useSelector(state => state.imageState);
 
     const handleSubmit = (recording) => {
         if(recording.recording && recording.timeToRecording) {
@@ -58,7 +59,7 @@ function Practise() {
                 </Row>
                 <Row className="Container-Row">
                     <Col xs={12} sm={12} md={7}>
-                        <QuestionImage question={exercise.question} image={exercise.image} />
+                        <QuestionImage question={exercise.question} image={exercise.image} imageDuration={imageState.imageTime} />
                     </Col>
                     <Col className="Container-Col">
                         <div className="Answer-Part">
