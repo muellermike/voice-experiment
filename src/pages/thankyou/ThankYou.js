@@ -1,9 +1,28 @@
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { useSelector } from 'react-redux';
+import { useEffect } from "react";
 import "./ThankYou.css";
 
 function ThankYou() {
     const globalState = useSelector(state => state.userInfoState);
+
+    useEffect(() => {
+
+        const requestOptions = {
+            mode: 'cors',
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json', 'X-API-KEY': process.env.REACT_APP_API_KEY_VALUE },
+            body: JSON.stringify({ user: globalState.userId, end: new Date().toISOString()})
+        };
+
+        // update experiment to set end date
+        fetch(process.env.REACT_APP_API_BASE_URL + '/experiments/' + globalState.experimentId, requestOptions)
+        .then(response => {
+            return response.json();
+        })
+        .catch(function(err) {
+        });
+    }, [globalState.userId, globalState.experimentId]);
     
     /*
     *   Show thank you text and redirection to Uni-Park with the ID.
