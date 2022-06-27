@@ -19,7 +19,7 @@ function PractiseIntroduction() {
     */
     return (
         <div>
-            <h1>Practise Task of the Dots Experiment</h1>
+            <h1>Practice Task of the Dots Experiment</h1>
             <div>
                 <p>Get to know how the Dots Experiment works.</p>
                 <Container>
@@ -30,7 +30,7 @@ function PractiseIntroduction() {
                         <Card>
                             <Card.Title>Dots Game</Card.Title>
                             <Card.Body className="card-body-practise-intro" >
-                                <p>In the next step you have the chance to test the experiment by playing several practise rounds. You will see the dots game almost as it is during the experiemnt. The only difference is that there are more hints how the user interface works. Take your time to figure out how the user interface works and how you can interact with it. The practise game does not influence the payment. You can play as long as you wish. Just record and submit your answer and then the next practise image will appear.</p>
+                                <p>In the next step you have the chance to test the experiment by playing several practice rounds. You will see the dots game almost as it is during the experiemnt. The only difference is that there are more hints how the user interface works. Take your time to figure out how the user interface works and how you can interact with it. The practice game does not influence the payment. You can play as long as you wish. Just record and submit your answer and then the next practice image will appear.</p>
                                 <p>You have to solve the task by answering whether there are more dots on the right or left side. Therefore, please answer in a sentence such as <b>"There are more dots on the right / left side"</b>. Note that we are going to pay according to your mentioned result and not whether the result was correct.</p>
                                 <p>To solve the game, note the steps below.</p>
                                 <ListGroup as="ol" numbered>
@@ -72,7 +72,7 @@ function PractiseIntroduction() {
                                     </ListGroup.Item>
                                 </ListGroup>
                                 <br /><p>Once you are ready, <b>scroll down to start the experiment</b>.</p>
-                                <Button variant="primary" onClick={handleClickNext} >Go to the practise game</Button>
+                                <Button variant="primary" onClick={handleClickNext} >Go to the practice game</Button>
                             </Card.Body>
                         </Card>
                     </Row>

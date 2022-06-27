@@ -53,7 +53,7 @@ function Practise() {
     // Daten anzeigen
     return (
         <div>
-            <h1>Practise Game</h1>
+            <h1>Practice Game</h1>
             <Container>
                 <Row className="Container-Row">
                     <ImportantInformation></ImportantInformation>
@@ -65,7 +65,7 @@ function Practise() {
                     </Col>
                     <Col className="Container-Col">
                         <div className="Answer-Part">
-                            <p>You're in the practise mode. You can try as long as you want.</p>
+                            <p>You're in the practice mode. You can try as long as you want.</p>
                             <AnswerForm onSubmit={handleSubmit} />
                             { showArrow ? 
                             <Fade in={showArrow} timeout={500} >
@@ -78,7 +78,7 @@ function Practise() {
                     </Col>
                 </Row>
                 <Row>
-                    You can keep going submitting those practise answers as long as you like. As soon as you hit the button below, the dots game as the experiment starts.
+                    You can keep going submitting those practice answers as long as you like. As soon as you hit the button below, the dots game as the experiment starts.
                     <Button variant="primary" onClick={startExperiment}>Start the experiment</Button>
                 </Row>
             </Container>         
