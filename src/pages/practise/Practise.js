@@ -78,7 +78,7 @@ function Practise() {
                     </Col>
                 </Row>
                 <Row>
-                    You can keep going submitting those practice answers as long as you like. As soon as you hit the button below, the dots game as the experiment starts.
+                    You can keep going submitting those practice answers as long as you like. As soon as you hit the button below, the experiment with the dots game starts.
                     <Button variant="primary" onClick={startExperiment}>Start the experiment</Button>
                 </Row>
             </Container>         

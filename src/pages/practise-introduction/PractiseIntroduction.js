@@ -48,8 +48,8 @@ function PractiseIntroduction() {
                                         className="d-flex justify-content-between align-items-start"
                                     >
                                         <div className="ms-2 me-auto">
-                                        <div className="fw-bold">Record your answer on the right side</div>
-                                        On the right side, you see the answer opportunity. Click on the green button with the microphone icon in it. This starts the recording. <b>Then you can state your answer</b>. While recording, the button is yellow and shows a pause icon. <b>To stop the recording press the yellow button.</b>
+                                        <div className="fw-bold">Record your answer</div>
+                                        On the right side of the desktop view, you see the answer opportunity. Click on the green button with the microphone icon in it. This starts the recording. <b>Then you can state your answer</b>. While recording, the button is yellow and shows a pause icon. <b>To stop the recording press the yellow button.</b> On mobile, the recording button is shown below the image.
                                         </div>
                                     </ListGroup.Item>
                                     <ListGroup.Item
