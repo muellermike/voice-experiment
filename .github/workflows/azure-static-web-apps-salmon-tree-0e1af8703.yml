@@ -36,7 +36,7 @@ jobs:
           REACT_APP_API_KEY_NAME: X-API-KEY
           REACT_APP_API_KEY_VALUE: the_value
           REACT_APP_NUM_EX: 16
-          REACT_APP_UNIPARK_RET_LINK: https://ww2.unipark.de/uc/5696/ospe.php?return_tic=
+          REACT_APP_UNIPARK_RET_LINK: https://ww2.unipark.de/uc/5696/ospe.php
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
