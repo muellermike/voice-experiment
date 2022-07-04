@@ -146,7 +146,7 @@ function ParticipantInfo() {
                                     <Card.Text>
                                         Please answer with a sentence like: <b>"I am a female / male / diverse"</b>.
                                     </Card.Text>
-                                    <AudioInput setAudioRecording={setGenderAudioRecording} setValue={handleGenderRecording}></AudioInput>
+                                    <AudioInput setAudioRecording={setGenderAudioRecording} isRecorded={isGenderRecorded} setValue={handleGenderRecording}></AudioInput>
                                 </Card.Body>
                             </Card> : ""}
                         </Form.Group>
@@ -159,7 +159,7 @@ function ParticipantInfo() {
                                     <Card.Text>
                                         Please answer with a sentence like: <b>"I am x years old"</b>. Please replace 'x' with your current age.
                                     </Card.Text>
-                                    <AudioInput setAudioRecording={setAgeAudioRecording} setValue={handleAgeRecording}></AudioInput>
+                                    <AudioInput setAudioRecording={setAgeAudioRecording} isRecorded={isAgeRecorded} setValue={handleAgeRecording}></AudioInput>
                                 </Card.Body>
                             </Card> : ""}
                         </Form.Group>

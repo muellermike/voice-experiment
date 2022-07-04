@@ -17,7 +17,7 @@ function ParticipantIdentifier() {
     let query = useQuery();
 
     useEffect(() => {
-        if (query.get("id_uder")) {
+        if (query.get("id_user")) {
             setExtUserId(query.get("id_user"))
         }
     }, [query])
