@@ -52,10 +52,10 @@ function ThankYou() {
                                 <Card.Body>
                                     <Card.Text>
                                         The payment will be proceeded to your Uni-Park account. <br />
-                                        You provided the ID: {globalState.externalUserId}.
+                                        You provided the ID: {globalState.externalUserId}. 
                                         <b>Please go back to Uni-Park with the button below and answer the concluding questions about the experiment</b>. Thank you.
                                     </Card.Text>
-                                    <Button variant="primary" href={process.env.REACT_APP_UNIPARK_RET_LINK + globalState.externalUserId}>Go back to Uni-Park</Button>
+                                    <Button variant="primary" href={process.env.REACT_APP_UNIPARK_RET_LINK + "?return_tic=" + globalState.externalUserId}>Go back to Uni-Park</Button>
                                 </Card.Body>
                             </Card>
                         </Col>
