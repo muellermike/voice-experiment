@@ -6,6 +6,7 @@ import "./ThankYou.css";
 function ThankYou() {
     const globalState = useSelector(state => state.userInfoState);
 
+    // send endtime to API
     useEffect(() => {
 
         const requestOptions = {
