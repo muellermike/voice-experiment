@@ -14,7 +14,7 @@ class QuestionImage extends React.Component {
     }
 
     /*
-    *   Run steps after component is mounted:
+    *   Run steps after component is updated:
     *   set timeout for showing image several seconds
     */
      componentDidUpdate(prevProps, prevState) {
