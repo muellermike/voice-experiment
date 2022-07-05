@@ -66,7 +66,7 @@ function PractiseIntroduction() {
                                         className="d-flex justify-content-between align-items-start"
                                     >
                                         <div className="ms-2 me-auto">
-                                        <div className="fw-bold">Next exercise</div>
+                                        <div className="fw-bold">Next round</div>
                                         <b>After clicking the submit button, the next exercise is shown immediately</b>. Start again with step 1.
                                         </div>
                                     </ListGroup.Item>
