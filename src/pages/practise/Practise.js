@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import ex1 from "../../assets/images/ex17.PNG";
 import ex2 from "../../assets/images/ex19.PNG";
-import { HiArrowSmDown } from "react-icons/hi";
+import empty from "../../assets/images/empty_ex.PNG";
 import ImportantInformation from "../../components/ImportantInformation/ImportantInformation";
 
 function Practise() {
@@ -32,9 +32,11 @@ function Practise() {
         if(recording.recording && recording.timeToRecording) {
             // forget recording and show next practise-exercise
             if(count === (exercises.length - 1)) {
-                setExercise(exercises[0]);
-                setCount(0);
                 setShowArrow(true);
+                setExercise({
+                    question: "On which side are more dots?",
+                    image: empty
+                });
             } else {
                 setExercise(exercises[count + 1]);
                 setCount(count + 1);
