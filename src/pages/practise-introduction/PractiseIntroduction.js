@@ -30,7 +30,7 @@ function PractiseIntroduction() {
                         <Card>
                             <Card.Title>Dots Game</Card.Title>
                             <Card.Body className="card-body-practise-intro" >
-                                <p>In the next step you have the chance to test the experiment by playing several practice rounds. You will see the dots game almost as it is during the experiemnt. The only difference is that there are more hints how the user interface works. Take your time to figure out how the user interface works and how you can interact with it. The practice game does not influence the payment. You can play as long as you wish. Just record and submit your answer and then the next practice image will appear.</p>
+                                <p>In the next step you have the chance to test the experiment by playing several practice rounds. You will see the dots game almost as it is during the experiemnt. The only difference is that there are more hints how the user interface works. Take your time to figure out how the user interface works and how you can interact with it. The practice game does not influence the payment.</p>
                                 <p>You have to solve the task by answering whether there are more dots on the right or left side. Therefore, please answer in a sentence such as <b>"There are more dots on the right / left side"</b>. Note that we are going to pay according to your mentioned result and not whether the result was correct.</p>
                                 <p>To solve the game, note the steps below.</p>
                                 <ListGroup as="ol" numbered>
@@ -66,7 +66,7 @@ function PractiseIntroduction() {
                                         className="d-flex justify-content-between align-items-start"
                                     >
                                         <div className="ms-2 me-auto">
-                                        <div className="fw-bold">Next exercise</div>
+                                        <div className="fw-bold">Next round</div>
                                         <b>After clicking the submit button, the next exercise is shown immediately</b>. Start again with step 1.
                                         </div>
                                     </ListGroup.Item>

@@ -1,5 +1,5 @@
 import { useState, React, useEffect } from "react";
-import { Button, Card, FloatingLabel, Form } from "react-bootstrap";
+import { Button, Card, Form } from "react-bootstrap";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { storeExternalUserId, storeImageTime } from '../../actions';
@@ -47,14 +47,7 @@ function ParticipantIdentifier() {
             <Card>
                 <Card.Title>Participate in the experiment</Card.Title>
                 <Card.Body>
-                    <p>Please provide the ID from UniPark.</p>
                     <Form noValidate validated={validated} onSubmit={handleSumbit}>
-                        <Form.Group>
-                            <FloatingLabel label="UniPark-ID">
-                                <Form.Control required type="text" placeholder="12345" onChange={e => setExtUserId(e.target.value)} value={extUserId} disabled={query.get("id_user")} />
-                                <Form.Control.Feedback type="invalid">Please provide your UniPark-ID!</Form.Control.Feedback>
-                            </FloatingLabel>
-                        </Form.Group>
                         <Button variant="primary" style={{ margin: "25px"}} type="submit">Next</Button>
                     </Form>
                 </Card.Body>
