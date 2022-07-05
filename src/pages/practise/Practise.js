@@ -65,21 +65,17 @@ function Practise() {
                     </Col>
                     <Col className="Container-Col">
                         <div className="Answer-Part">
-                            <p>You're in the practice mode. You can try as long as you want.</p>
+                            <p>You're in the practice mode. Your answers aren't stored.</p>
+                            { !showArrow ? 
                             <AnswerForm onSubmit={handleSubmit} />
-                            { showArrow ? 
+                            :
                             <Fade in={showArrow} timeout={500} >
                                 <div className="experiment-hint">
-                                    <HiArrowSmDown size={"2em"} />
-                                    Start the experiment below
+                                    <Button variant="primary" onClick={startExperiment}>Start the experiment</Button>
                                 </div>
-                            </Fade> : "" }
+                            </Fade>}
                         </div>
                     </Col>
-                </Row>
-                <Row>
-                    You can keep going submitting those practice answers as long as you like. As soon as you hit the button below, the experiment with the dots game starts.
-                    <Button variant="primary" onClick={startExperiment}>Start the experiment</Button>
                 </Row>
             </Container>         
         </div>
