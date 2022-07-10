@@ -32,7 +32,7 @@ function ThankYou() {
         <div>
             <h1>All rounds played</h1>
             <div>
-                <p>We hope you had pleasure filling it out.</p>
+                <p>We hope you had pleasure playing the game.</p>
                 <Container>
                     <Row>
                         <Col>
