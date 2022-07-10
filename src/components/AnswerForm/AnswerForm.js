@@ -31,8 +31,8 @@ function AnswerForm(props) {
             <Form className="vertical-center">
                 <Form.Group className="mb-3" controlId="formBasicAudio">
                     <Form.Label>Please answer the question with an audio input.<br />
-                    <b>"There are more dots on the left side"</b> (payout 0.5 penny).<br />
-                    <b>"There are more dots on the right side"</b> (payout 5 pence).</Form.Label><br />
+                    <b>"There are more dots on the left side"</b> (payout 0.5 Cents).<br />
+                    <b>"There are more dots on the right side"</b> (payout 5 Cents).</Form.Label><br />
                     <AudioInput setAudioRecording={setAudioRecording} isRecorded={isRecorded} setValue={handleExerciseRecording}></AudioInput>
                     <Form.Text className="text-muted">
                         We'll never share your voice input with anyone else.

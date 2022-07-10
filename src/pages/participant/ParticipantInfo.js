@@ -144,7 +144,7 @@ function ParticipantInfo() {
                                 <Card.Body>
                                     <Card.Title>Provide your gender through speech</Card.Title>
                                     <Card.Text>
-                                        Please answer with a sentence like: <b>"I am a female / male / diverse"</b>.
+                                        Please answer with a sentence like: <b>"I am a female."</b> or <b>"I am a male."</b> or <b>"I am diverse."</b>
                                     </Card.Text>
                                     <AudioInput setAudioRecording={setGenderAudioRecording} isRecorded={isGenderRecorded} setValue={handleGenderRecording}></AudioInput>
                                 </Card.Body>
