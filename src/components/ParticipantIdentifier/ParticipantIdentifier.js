@@ -47,6 +47,7 @@ function ParticipantIdentifier() {
             <Card>
                 <Card.Title>Participate in the experiment</Card.Title>
                 <Card.Body>
+                    <p>To participate in the experiment, please choose next.</p>
                     <Form noValidate validated={validated} onSubmit={handleSumbit}>
                         <Button variant="primary" style={{ margin: "25px"}} type="submit">Next</Button>
                     </Form>
