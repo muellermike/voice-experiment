@@ -174,7 +174,7 @@ function ParticipantInfo() {
                                 role="status"
                                 aria-hidden="true"
                                 /> : '' }
-                                Submit
+                                Go to practice game
                             </Button>
                         </Col>
                     </Row>

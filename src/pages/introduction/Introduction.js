@@ -1,7 +1,6 @@
 import { Card, Col, Container, Row } from "react-bootstrap";
 import ParticipantIdentifier from "../../components/ParticipantIdentifier/ParticipantIdentifier";
 import "./Introduction.css";
-import exampleImg from "../../assets/images/example.PNG";
 
 function Introduction() {
     

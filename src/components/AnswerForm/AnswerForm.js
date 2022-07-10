@@ -46,7 +46,7 @@ function AnswerForm(props) {
                     role="status"
                     aria-hidden="true"
                     /> : '' }
-                    Submit Answer
+                    Play next round
                 </Button>
             </Form>
             
