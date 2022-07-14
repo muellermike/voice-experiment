@@ -107,7 +107,7 @@ function Exercise() {
                     <ImportantInformation></ImportantInformation>
                     <ExperimentDescription></ExperimentDescription>
                 </Row>
-                <Row>
+                <Row className="Container-Row">
                     <Col>
                         <ProgressBar now={(count / process.env.REACT_APP_NUM_EX) * 100} label={(count / process.env.REACT_APP_NUM_EX) * 100 + " %"}></ProgressBar>
                     </Col>
@@ -117,7 +117,11 @@ function Exercise() {
                         <QuestionImage question={exercise.question} image={"data:" + exercise.mimeType + ";base64, " + exercise.encodedString} imageDuration={imageState.imageTime} />
                     </Col>
                     <Col className="Container-Col">
-                        <AnswerForm onSubmit={handleSubmit} />
+                        <div className="Answer-Part">
+                            <h2>{exercise.question}</h2>
+                            <br />
+                            <AnswerForm onSubmit={handleSubmit} />
+                        </div>
                     </Col>
                 </Row>
             </Container>        

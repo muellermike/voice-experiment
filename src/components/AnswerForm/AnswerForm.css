@@ -6,3 +6,6 @@
         transform: translateY(-50%);
     }
 }*/
+.information-button {
+    opacity: 0.85 !important;
+}

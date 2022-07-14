@@ -40,6 +40,7 @@ function AnswerForm(props) {
                         <ButtonGroup>
                             {answers.map((a, idx) => (
                             <ToggleButton
+                                className="information-button"
                                 required
                                 disabled={true}
                                 key={idx}

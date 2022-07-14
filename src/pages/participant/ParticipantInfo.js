@@ -1,4 +1,4 @@
-import { Col, Form, Row, Button, Spinner, Card } from "react-bootstrap";
+import { Col, Form, Row, Button, Card } from "react-bootstrap";
 import AudioInput from "../../components/AudioInput/AudioInput";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -11,25 +11,21 @@ function ParticipantInfo() {
 
     let navigate = useNavigate();
     const dispatch = useDispatch();
-    const [isGenderRecorded, setGenderRecorded] = useState(false);
-    const [isAgeRecorded, setAgeRecorded] = useState(false);
     const [isMicCheckRecorded, setMicCheckRecorded] = useState(false);
     const [isRuleAccepted, setRuleAccepted] = useState(false);
-    const [ageRecording, setAgeRecording] = useState(null);
-    const [genderRecording, setGenderRecording] = useState(null);
     const [micCheckRecording, setMicCheckRecording] = useState(null);
     const globalState = useSelector(state => state.userInfoState);
     const imageState = useSelector(state => state.imageState);
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if(genderRecording  && ageRecording) {
+        if(micCheckRecording) {
             // POST user and recordings
             const requestOptions = {
                 mode: 'cors',
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'X-API-KEY': process.env.REACT_APP_API_KEY_VALUE },
-                body: JSON.stringify({ id: globalState.externalUserId, age: ageRecording, gender: genderRecording })
+                body: JSON.stringify({ id: globalState.externalUserId })
             };
             fetch(process.env.REACT_APP_API_BASE_URL + '/users', requestOptions)
             .then(response => {
@@ -50,7 +46,6 @@ function ParticipantInfo() {
 
                     return response.json();
                 })
-                //.then(data => navigate("/" + data + "/exercise"));
                 .then(data => {
                     dispatch(storeExperimentId(data))
                     navigate("/practise-intro");
@@ -64,33 +59,11 @@ function ParticipantInfo() {
         }
     }
 
-    const handleGenderRecording = (recording, timeToRecording) => {
-        setGenderRecording({
-            timeToRecording: timeToRecording,
-            recording: recording
-        });
-    }
-
-    const handleAgeRecording = (recording, timeToRecording) => {
-        setAgeRecording({
-            timeToRecording: timeToRecording,
-            recording: recording
-        });
-    }
-
     const handleMicCheckRecording = (recording, timeToRecording) => {
         setMicCheckRecording({
             timeToRecording: timeToRecording,
             recording: recording
         });
-    }
-
-    const setGenderAudioRecording = (value) => {
-        setGenderRecorded(value);
-    }
-
-    const setAgeAudioRecording = (value) => {
-        setAgeRecorded(value);
     }
 
     const setMicCheckAudioRecording = (value) => {
@@ -101,15 +74,13 @@ function ParticipantInfo() {
         setRuleAccepted(!isRuleAccepted);
     };
 
-    // check cards (Header and Footer): https://react-bootstrap.github.io/components/cards/#header-and-footer
-    // show data to receive participant information
     return (
         <div>
-            <h2>Microphone Check and Participant Information</h2><br />
+            <h2>Microphone Check</h2><br />
             <p>
-                To check the audio for the experiment please test below. Additionally, please provide information about yourself. 
+                To check the audio for the experiment please test below.
                 All data is being recorded anonymously. We never have the possibility to find out who you are.
-                Please answer the question with an audio input. Please check your surrounding.
+                Answer the questions with an audio input. Please check your surrounding.
             </p>
             <Card>
                 <Form className="form-container">
@@ -118,7 +89,7 @@ function ParticipantInfo() {
                             <Card className="participant-card">
                                 <Card.Header as="h5">Mic Check</Card.Header>
                                 <Card.Body>
-                                    <Card.Title>Please test your microphone. </Card.Title>
+                                    <Card.Title>Test your microphone. </Card.Title>
                                     <Card.Text>
                                         You can test the microphone for example by saying <b>"I'm ready to start the dots estimation experiment"</b>. After recording, you can listen to your audio.
                                         Please check that there aren't any surrounding sounds and that you are clearly hearable in the audio.
@@ -137,43 +108,10 @@ function ParticipantInfo() {
                                 </Card.Body>
                             </Card>
                         </Form.Group>
-                        <Form.Group className=" no-padding" controlId="formHorizontalGender">
-                        {(micCheckRecording) ? 
-                            <Card className="participant-card">
-                                <Card.Header as="h5">Gender</Card.Header>
-                                <Card.Body>
-                                    <Card.Title>Provide your gender through speech</Card.Title>
-                                    <Card.Text>
-                                        Please answer with a sentence like: <b>"I am a female."</b> or <b>"I am a male."</b> or <b>"I am diverse."</b>
-                                    </Card.Text>
-                                    <AudioInput setAudioRecording={setGenderAudioRecording} isRecorded={isGenderRecorded} setValue={handleGenderRecording}></AudioInput>
-                                </Card.Body>
-                            </Card> : ""}
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formHorizontalAge">
-                            {(micCheckRecording && genderRecording) ? 
-                            <Card className="participant-card">
-                                <Card.Header as="h5">Age</Card.Header>
-                                <Card.Body>
-                                    <Card.Title>Provide your age through speech</Card.Title>
-                                    <Card.Text>
-                                        Please answer with a sentence like: <b>"I am x years old"</b>. Please replace 'x' with your current age.
-                                    </Card.Text>
-                                    <AudioInput setAudioRecording={setAgeAudioRecording} isRecorded={isAgeRecorded} setValue={handleAgeRecording}></AudioInput>
-                                </Card.Body>
-                            </Card> : ""}
-                        </Form.Group>
                     </Row>
                     <Row className="button-row">
                         <Col>
-                            <Button variant="primary" disabled={!(isMicCheckRecorded && isGenderRecorded && isAgeRecorded && isRuleAccepted)} type="submit" onClick={handleSubmit}>
-                                { false ? <Spinner
-                                as="span"
-                                animation="border"
-                                size="sm"
-                                role="status"
-                                aria-hidden="true"
-                                /> : '' }
+                            <Button variant="primary" disabled={!(isMicCheckRecorded && isRuleAccepted)} type="submit" onClick={handleSubmit}>
                                 Go to practice game
                             </Button>
                         </Col>

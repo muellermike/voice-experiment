@@ -1,5 +1,5 @@
 import { useState, React, useEffect } from "react";
-import { Button, Card, Form } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { storeExternalUserId, storeImageTime } from '../../actions';
@@ -10,7 +10,6 @@ function ParticipantIdentifier() {
         return new URLSearchParams(useLocation().search);
     }
     
-    const [validated, setValidated] = useState(false);
     const [extUserId, setExtUserId] = useState("");
     let navigate = useNavigate();
     const dispatch = useDispatch();
