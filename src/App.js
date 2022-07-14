@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>
-          Dots Experiment
+          Dots Estimation Experiment
         </p>
       </header>
       <div className="App-body">

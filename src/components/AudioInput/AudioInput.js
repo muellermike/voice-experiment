@@ -145,9 +145,9 @@ class AudioInput extends React.Component {
         return (
             <div>
                 { !this.state.isRecording && !this.props.isRecorded ? 
-                    <div><Button variant="success" className="Mic-button" onClick={this.startRecording}><HiOutlineMicrophone size={"2em"} /> </Button> <p>start recording with this button</p></div> :
+                    <div><Button variant="success" className="Mic-button" onClick={this.startRecording}><HiOutlineMicrophone size={"2em"} /> </Button> <p>Start recording with this button.</p></div> :
                 this.state.isRecording ? 
-                    <div><Button variant="danger" className="Mic-button" onClick={this.stopRecording}><HiOutlineStop size={"2em"} /> </Button> <p>stop recording with this button</p></div> :
+                    <div><Button variant="danger" className="Mic-button" onClick={this.stopRecording}><HiOutlineStop size={"2em"} /> </Button> <p>Stop recording with this button.</p></div> :
                 this.props.isRecorded ? <Button disabled variant="success"><HiOutlineBadgeCheck size={"2em"} /> successfully recorded</Button> : "" }
                 { this.state.base64String && this.props.showPlayAudio ?  <Button onClick={this.playBlob}>play audio</Button> : ""}
                 <Outlet />

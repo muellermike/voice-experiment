@@ -1,5 +1,5 @@
 import "./AnswerForm.css";
-import { Button, Form, Spinner } from "react-bootstrap";
+import { ButtonGroup, ToggleButton, Button, Form, Spinner } from "react-bootstrap";
 import AudioInput from "../AudioInput/AudioInput";
 import { useState } from "react";
 
@@ -7,6 +7,11 @@ function AnswerForm(props) {
     const [isRecorded, setRecorded] = useState(false);
     const [recording, setRecording] = useState({});
 
+    const answers = [
+        { value: "left", name: "There are more dots on the left side.", payout: "(payout 0.5 Cents)" },
+        { value: "right", name: "There are more dots on the right side.", payout: "(payout 5 Cents)" }
+    ];
+    
     const handleSubmit = (event) => {
         event.preventDefault();
         props.onSubmit(recording);
@@ -30,13 +35,27 @@ function AnswerForm(props) {
         <div>
             <Form className="vertical-center">
                 <Form.Group className="mb-3" controlId="formBasicAudio">
-                    <Form.Label>Please answer the question with an audio input.<br />
-                    <b>"There are more dots on the left side"</b> (payout 0.5 Cents).<br />
-                    <b>"There are more dots on the right side"</b> (payout 5 Cents).</Form.Label><br />
+                    <Form.Label>
+                        Please answer the question with an audio input by using either one of the two sentences (only those words written in <b>bold</b>).<br />
+                        <ButtonGroup>
+                            {answers.map((a, idx) => (
+                            <ToggleButton
+                                className="information-button"
+                                required
+                                disabled={true}
+                                key={idx}
+                                id={`radio-${idx}`}
+                                type="radio"
+                                variant={'outline-success'}
+                                name="radio"
+                                value={a.value}
+                            >
+                                <b>{a.name}</b> <br /> {a.payout}
+                            </ToggleButton>
+                            ))}
+                        </ButtonGroup>
+                    </Form.Label><br />
                     <AudioInput setAudioRecording={setAudioRecording} isRecorded={isRecorded} setValue={handleExerciseRecording}></AudioInput>
-                    <Form.Text className="text-muted">
-                        We'll never share your voice input with anyone else.
-                    </Form.Text>
                 </Form.Group>
                 <Button variant="primary" disabled={!isRecorded} type="submit" onClick={handleSubmit}>
                     { false ? <Spinner

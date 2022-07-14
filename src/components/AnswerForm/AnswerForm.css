@@ -1,8 +1,11 @@
-@media (min-width: 768px) {
+/*@media (min-width: 768px) {
     .vertical-center {
         position: absolute;
         top: 50%;
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
     }
+}*/
+.information-button {
+    opacity: 0.85 !important;
 }
