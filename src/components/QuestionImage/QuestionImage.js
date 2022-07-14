@@ -68,8 +68,8 @@ class QuestionImage extends React.Component {
                         </Card.Text>
                     </Card.Body>
                     <div>
-                        {this.state.timeIsUp ? <Card.Img className="Image-Dots" variant="bottom" src={emptyEx} /> : 
-                            <Card.Img className="Image-Dots" variant="bottom" src={this.props.image} />
+                        {this.state.timeIsUp ? <div><p className="left-text">left</p><Card.Img className="Image-Dots" variant="bottom" src={emptyEx} /><p className="right-text">right</p></div> : 
+                            <div><p className="left-text">left</p><Card.Img className="Image-Dots" variant="bottom" src={this.props.image} /><p className="right-text">right</p></div>
                         }
                     </div>
                 </Card>
