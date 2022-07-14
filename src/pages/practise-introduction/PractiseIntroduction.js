@@ -1,13 +1,10 @@
 import "./PractiseIntroduction.css";
 import { Card, Container, Row, Button, ListGroup } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from 'react-redux';
 import ImportantInformation from "../../components/ImportantInformation/ImportantInformation";
 
 function PractiseIntroduction() {
     let navigate = useNavigate();
-
-    const imageState = useSelector(state => state.imageState);
 
     const handleClickNext = (event) => {
         event.preventDefault();
