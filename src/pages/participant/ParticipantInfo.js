@@ -120,7 +120,7 @@ function ParticipantInfo() {
                                 <Card.Body>
                                     <Card.Title>Please test your microphone. </Card.Title>
                                     <Card.Text>
-                                        You can test the microphone for example by saying <b>"I'm ready to start the experiment game"</b>. After recording, you can listen to your audio.
+                                        You can test the microphone for example by saying <b>"I'm ready to start the dots estimation experiment"</b>. After recording, you can listen to your audio.
                                         Please check that there aren't any surrounding sounds and that you are clearly hearable in the audio.
                                     </Card.Text>
                                     <AudioInput setAudioRecording={setMicCheckAudioRecording} showPlayAudio setValue={handleMicCheckRecording}></AudioInput>

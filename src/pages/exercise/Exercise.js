@@ -101,7 +101,7 @@ function Exercise() {
     // Daten anzeigen
     return (
         <div>
-            <h1>Experiment Game</h1>
+            <h1>Dots Estimation Experiment</h1>
             <Container>
                 <Row>
                     <ImportantInformation></ImportantInformation>

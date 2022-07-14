@@ -19,9 +19,9 @@ function PractiseIntroduction() {
     */
     return (
         <div>
-            <h1>Practice Task of the Dots Experiment</h1>
+            <h1>Practice Task of the Dots Estimation Experiment</h1>
             <div>
-                <p>Get to know how the Dots Experiment works.</p>
+                <p>Get to know how the Dots Estimation Experiment works.</p>
                 <Container>
                     <Row>
                         <ImportantInformation></ImportantInformation>
