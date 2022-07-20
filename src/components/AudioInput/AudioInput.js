@@ -3,6 +3,7 @@ import './AudioInput.css';
 import { Button } from "react-bootstrap";
 import { HiOutlineMicrophone, HiOutlineStop, HiOutlineBadgeCheck } from "react-icons/hi";
 import { Outlet } from 'react-router-dom';
+import RecordRTC from "recordrtc";
 
 /*
 *   Functionality implemented as: https://medium.com/front-end-weekly/recording-audio-in-mp3-using-reactjs-under-5-minutes-5e960defaf10
@@ -40,7 +41,8 @@ class AudioInput extends React.Component {
             this.checkAudioPermission();
         } else {
             this.setState({ isRecording: true, endTime: new Date() });
-            this.mediaRecorder.start();
+            this.mediaRecorder.reset();
+            this.mediaRecorder.startRecording();
             console.log("Recording started");
         }
     }
@@ -48,8 +50,20 @@ class AudioInput extends React.Component {
     /*
     *   Stop recording and store blob into URL in current state
     */
-    async stopRecording() {
-        this.mediaRecorder.stop();
+    stopRecording() {
+        //this.mediaRecorder.stop();
+        this.mediaRecorder.stopRecording(() => {
+            this.audioBlob = this.mediaRecorder.getBlob();
+
+            let reader = new FileReader();
+            reader.readAsDataURL(this.audioBlob);
+            reader.onloadend = () => {
+                this.audioBase64 = reader.result;
+                this.setState({isRecording: false, blob: this.audioBlob, base64String: this.audioBase64});
+                this.props.setAudioRecording(true);
+                this.props.setValue(this.audioBase64, this.state.endTime - this.state.startTime);
+            };
+        });
         console.log("Recording stopped.");
     }
 
@@ -58,46 +72,15 @@ class AudioInput extends React.Component {
     */
     checkAudioPermission() {
         // check if the permission for the microphone is allowed in the browser
-        let ac = [];
 
-        navigator.mediaDevices.getUserMedia({ audio: true })
+        navigator.mediaDevices.getUserMedia({ audio: true, video: false })
             .then((stream) => {
                 console.log("Permission Granted");
-                this.mediaRecorder = new MediaRecorder(stream);
-                ac = [];
-
-                /*
-                ** Push recorded data into a chunk array
-                */
-                this.mediaRecorder.ondataavailable = function(e) {
-                    ac.push(e.data);
-                };
-
-                /*
-                ** store all information into the state and call prop methods from parent
-                */
-                const storeAllInformation = (base64Audio, blobOfAudio, isRecordingState, setAudioRecordingValue) => {
-                    this.setState({isRecording: isRecordingState, blob: blobOfAudio, base64String: base64Audio});
-                    this.props.setAudioRecording(setAudioRecordingValue);
-                    this.props.setValue(base64Audio, this.state.endTime - this.state.startTime);
-                };
-
-                /*
-                ** handle stop recording click -> bring chunks into audio/wav blob and convert it to base64 string
-                */
-                this.mediaRecorder.onstop = function(e) {
-                    // create blob of the chunk array as audio/wav
-                    this.audioBlob = new Blob(ac, { type: "audio/wav" });
-                    // clear chunk array for next recording
-                    ac = [];
-
-                    let reader = new FileReader();
-                    reader.readAsDataURL(this.audioBlob);
-                    reader.onloadend = () => {
-                        this.audioBase64 = reader.result;
-                        storeAllInformation(this.audioBase64, this.audioBlob, false, true);
-                    };
-                };
+                this.mediaRecorder = RecordRTC(stream, { 
+                    type: "audio",
+                    mimeType: "audio/wav",
+                    recorderType: RecordRTC.StereoAudioRecorder
+                })
 
                 this.setState({ isBlocked: false });
             })
