@@ -5,6 +5,7 @@ import "./ThankYou.css";
 
 function ThankYou() {
     const globalState = useSelector(state => state.userInfoState);
+    const experimentState = useSelector(state => state.experimentState);
 
     // send endtime to API
     useEffect(() => {
@@ -41,7 +42,7 @@ function ThankYou() {
                                 <Card.Body>
                                     <p>To finish the experiment, <b>you have to answer some concluding questions.</b></p>
                                     <p>To do so, <b>click the button below.</b></p>
-                                    <Button variant="primary" href={process.env.REACT_APP_UNIPARK_RET_LINK + "?return_tic=" + globalState.externalUserId}>Go to concluding questions</Button>
+                                    <Button variant="primary" href={process.env.REACT_APP_UNIPARK_RET_LINK + experimentState.experimentName + "/" + process.env.REACT_APP_UNIPARK_RET_LINK2 + "?return_tic=" + globalState.externalUserId}>Go to concluding questions</Button>
                                 </Card.Body>
                             </Card>
                         </Col>
