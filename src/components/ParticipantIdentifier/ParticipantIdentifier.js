@@ -2,7 +2,7 @@ import { useState, React, useEffect } from "react";
 import { Button, Card } from "react-bootstrap";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from 'react-redux';
-import { storeExternalUserId, storeImageTime } from '../../actions';
+import { storeExternalUserId, storeImageTime, storeExpName } from '../../actions';
 
 function ParticipantIdentifier() {
 
@@ -11,6 +11,7 @@ function ParticipantIdentifier() {
     }
     
     const [extUserId, setExtUserId] = useState("");
+    const [expName, setExpName] = useState("");
     let navigate = useNavigate();
     const dispatch = useDispatch();
     let query = useQuery();
@@ -19,6 +20,9 @@ function ParticipantIdentifier() {
         if (query.get("id_user")) {
             setExtUserId(query.get("id_user"))
         }
+        if (query.get("exp_name")) {
+            setExpName(query.get("exp_name"));
+        }
     }, [query])
 
     const handleSumbit = () => {
@@ -26,6 +30,7 @@ function ParticipantIdentifier() {
         if (query.get("img_tm")) {
             dispatch(storeImageTime(query.get("img_tm") * 1000));
         }
+        dispatch(storeExpName(expName));
         navigate("/participant");
     }
 
