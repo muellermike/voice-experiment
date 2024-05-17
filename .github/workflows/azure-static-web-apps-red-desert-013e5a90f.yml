@@ -32,6 +32,13 @@ jobs:
           api_location: "" # Api source code path - optional
           output_location: "build" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
+        env: # Add environment variables here
+          REACT_APP_API_BASE_URL: https://voiceexperiment-backend.azurewebsites.net
+          REACT_APP_API_KEY_NAME: X-API-KEY
+          REACT_APP_API_KEY_VALUE: the_value
+          REACT_APP_NUM_EX: 10
+          REACT_APP_UNIPARK_RET_LINK: https://ww2.unipark.de/uc/
+          REACT_APP_UNIPARK_RET_LINK2: ospe.php
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
